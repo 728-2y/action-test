@@ -1,4 +1,4 @@
-name: Shell Commands
+name: actions workflow
 
 on: [push]
 
@@ -8,8 +8,8 @@ jobs:
     steps:
       - name: simple js action
         id: greet
-        uses: 728-2y/action-test@main
+        uses: actions/hello-world-javascript-action@main
         with:
-          who-to-greet: john
+          who-to-greet: yushan
       - name: log greeting time
         run: echo "${{steps.greet.outputs.time}}"
