@@ -1,15 +1,24 @@
 name: actions workflow
 
 on: 
-  repository_dispatch:
-    types: [build]
+  # 通过发送api请求，检测到请求触发
+  # 参考文档 https://docs.github.com/cn/rest/repos/repos#create-a-repository-dispatch-event
+  # repository_dispatch:
+  #  types: [build]
   # 定时任务
   # schedule:
   #   - cron: "0/5 * * * *"
   #   - cron: "0/6 * * * *"
 
   # push 动作
-  # push:
+  #push:
+  #  branches:
+  #    - "master"
+  #    - "feature/*" #　matches feature/featA, feature/featB
+                    #  doestn't match featrue/feat/a
+  #  tags:
+  #    - "v1.*"
+    
   pull_request:
     types:
       - "closed"
